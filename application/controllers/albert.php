@@ -6,4 +6,9 @@ class Albert extends CI_Controller {
 	{
 		echo 'Hello from Albert!';
 	}
+
+	function time_table()
+	{
+		echo 'Time Table';
+	}
 }
