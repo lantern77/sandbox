@@ -1,7 +1,7 @@
 <?php
 
 
-class eventsModel extends CI_Model
+class eventsModel extends MY_Model
 {
 	/*
 	* Function Name: getUpcomingEvents

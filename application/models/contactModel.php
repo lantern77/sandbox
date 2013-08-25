@@ -1,6 +1,6 @@
 <?php 
 
-class contactModel extends CI_Model 
+class contactModel extends MY_Model 
 {
 	/*
 	* Function Name: getExecContractInfo

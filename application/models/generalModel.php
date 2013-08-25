@@ -1,7 +1,7 @@
 <?php
 
 
-class generalModel extends CI_Model
+class generalModel extends MY_Model
 {
 	/* 
 	* Function Name: getInfo

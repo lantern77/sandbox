@@ -1,21 +1,48 @@
 <?php
 
-class adminModel extends CI_Model
+class AdminModel extends MY_Model
 {
+
+	public $_table = 'admins';
+
+
+
+
 	/*
 	* Function Name: checkUser
 	* Description: Authenticates user
 	*/
-	function checkUser($username, $password)
+	public function checkUser($username, $password)
 	{
+		
+		$data = $this->get_all();
+		
+		foreach($data as $row)
+		{
+			$isUser = 0;
+			
+			if ($username == $row->username) {
+				$isUser = 1;
+			}
+			
+			if ($password == $row->password) {
+				$isUser = 2;
+				break;
+			}
+		}
+		
+			return $isUser;
 
 	}
+
+
+
 
 	/*
 	* Function Name: addAdmin 
 	* Description: Adds a new admin
 	*/
-	function addAdmin($username, $password, $email)
+	public function addAdmin($username, $password, $email)
 	{
 
 	}
@@ -24,7 +51,7 @@ class adminModel extends CI_Model
 	* Function Name: deleteAdmin
 	* Description: Deletes an admin
 	*/
-	function deleteAdmin($username)
+	public function deleteAdmin($username)
 	{
 
 	}
@@ -35,7 +62,7 @@ class adminModel extends CI_Model
 	*  Description: Retrieves the admin's email address
 	*
 	*/
-	function getEmail($username, $password)
+	public function getEmail($username, $password)
 	{
 
 	}
@@ -46,7 +73,7 @@ class adminModel extends CI_Model
 	* Description: get any property value corresponding to any username
 	* Special Note: Easier to add more properties and new functions or new information about the admin
 	*/
-	function getProperty($nameOfProperty, $username)
+	public function getProperty($nameOfProperty, $username)
 	{
 
 	}

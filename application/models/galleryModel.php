@@ -1,7 +1,7 @@
 <?php
 
 
-class galleryModel extends CI_Model
+class galleryModel extends MY_Model
 {
 
 
