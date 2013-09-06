@@ -1,6 +1,10 @@
 
-<?php echo "<form action='/sandbox/index.php/admin/newpostload/".$isLogged."' method='post'>"; ?>
+<?php echo "<form action='/sandbox/index.php/admin/newpostload/".$user."' method='post'>"; ?>
 <input type="submit" value="New Post"> 
+</form>
+
+<?php echo "<form action='/sandbox/index.php/admin/logout' method='post'>"; ?>
+<input type="submit" value="Log Out">
 </form>
 
 
@@ -29,7 +33,7 @@ foreach ($news as $row)
 	echo "<td>". $row->author . "</td>";
 	echo "<td>". $row->date . "</td>";
 	echo "<td>edit</td>";
-	echo "<td><a href='/sandbox/index.php/admin/deletePost/".$row->id."/".$isLogged."'>delete</a></td>";
+	echo "<td><a href='/sandbox/index.php/admin/deletePost/".$row->id."'>delete</a></td>";
 	echo "</tr>";
 	
 }

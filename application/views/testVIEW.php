@@ -5,7 +5,7 @@
 <body>
 <?php //echo $user; 
 	 // echo $pass;
-	  echo $isUser;
+	  echo $yea;
 ?>
 </body>
 </html>

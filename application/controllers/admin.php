@@ -21,15 +21,16 @@
 
 		public function postsMenu() {
 
-			if ($this->isLogged == 1) {
+			$this->load->library('session');
+			$session_user = $this->session->userdata('logged_in');
+			$isSession = empty($session_user);
+			if ($isSession == FALSE) {
 
 				$this->load->model('newsmodel','',TRUE);
 
 				$data['title'] = 'Admin Menu';
-				$data['isLogged'] = $this->isLogged;
+				$data['user'] = $session_user;
 				$data['news'] = array_reverse($this->newsmodel->get_all());
-
-				if (isset($this->user)) {$data['user'] = $this->user;}
 
 				$this->load->view('header',$data);
 				$this->load->view('admin_view',$data);
@@ -60,55 +61,68 @@
 				$this->load->view('header');
 				$this->load->view('formFail');
 				$this->load->view('footer');
+				
 			}
 			if ($isUser == 2)
 			{
-				$this->isLogged = 1;
+				$this->load->library('session');
 				$this->user = $login_user;
+       			$this->session->set_userdata('logged_in', $login_user);
 				$this->postsMenu();
 			}
 		}
 
-		public function deletePost($id, $isLogged)
+		public function deletePost($id)
 		{
-			if ($isLogged = 1)
+			$this->load->library('session');
+			$session_user = $this->session->userdata('logged_in');
+			$isSession = empty($session_user);
+			if ($isSession == FALSE) 
 			{
 				$this->load->model('newsmodel','',TRUE);
 				$this->newsmodel->delete($id);
+				$this->postsMenu();
 
-			
-				$data['title'] = 'Admin Menu';
-				$data['isLogged'] = $this->isLogged;
-				$data['news'] = array_reverse($this->newsmodel->get_all());
-				if (isset($this->user)) {$data['user'] = $this->user;}
-				$this->load->view('header',$data);
-				$this->load->view('admin_view',$data);
-				$this->load->view('footer',$data);
-
+			}
+			else
+			{
+				$this->load->view('header');
+				$this->load->view('formFail');
+				$this->load->view('footer');
 			}
 		}
 
-		public function newpostload($isLogged)
+		public function newpostload($user)
 		{
 			$this->load->model('adminModel','',TRUE);
 			$info['info'] = $this->adminModel->get_all();
-			$info['isLogged'] = $isLogged;
+		
+			$this->load->library('session');
+			$session_user = $this->session->userdata('logged_in');
+			$isSession = empty($session_user);
+			if ($isSession == FALSE) {
 			
-			if ($isLogged = 1)
-			{
 				$this->load->view('header',$info);
 				$this->load->view('newpost_view',$info);
 				$this->load->view('footer',$info);
+			}
+			else
+			{
+				$this->load->view('header');
+				$this->load->view('formFail');
+				$this->load->view('footer');
 			}
 		}
 
 		public function newPost ()
 		{
-			$isLogged = $this->input->post('logged');
-			if ($this->isLogged = 1)
+			$this->load->library('session');
+			$session_user = $this->session->userdata('logged_in');
+			$isSession = empty($session_user);
+			if ($isSession == FALSE) 
 			{
 				$post_name=$this->input->post('postName');
-				$post_author=$this->input->post('authors');
+				$post_author=$session_user;
 				$post_text=$this->input->post('content');
 
 				$array = array("name" => "".$post_name,
@@ -119,7 +133,31 @@
 					);
 				$this->load->model('newsmodel','',TRUE);
 				$this->newsmodel->insert($array);
+
+				$this->postsMenu();
 			}
+			else
+			{
+				$this->load->view('header');
+				$this->load->view('formFail');
+				$this->load->view('footer');
+			}
+		}
+
+		public function logout()
+		{
+			  $this->load->library('session');
+			  $this->session->unset_userdata('logged_in');
+			  $this->load->helper('url');
+   			  $this->session->sess_destroy();
+   			  $data['msg'] = 'Returning to home page';
+   			  $this->load->view('header');
+			  $this->load->view('formFail',$data);
+			  $this->load->view('footer');
+   			  
+
+
+
 		}
 
 		

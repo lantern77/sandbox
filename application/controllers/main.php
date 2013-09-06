@@ -27,10 +27,16 @@
 
 			$data['title'] = 'NEWS';
 			$this->load->view('header',$data);
-			$this->load->view('news_view',$data);
+			$this->load->view('home',$data);
 			$this->load->view('footer',$data);
 		}
 
+		public function login()
+		{
+			$this->load->view('header');
+			$this->load->view('login');
+			$this->load->view('footer');
+		}
 	
 		
 	}
