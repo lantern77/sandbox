@@ -18,24 +18,34 @@
 		public function index()
 		{
 			$this->load->model('newsmodel','',TRUE);
-			$this->news();
+			$this->goHome();
 		}
 
-		public function news()
+		public function goHome ()
 		{
-			$data['news'] = array_reverse($this->newsmodel->get_all());
-
-			$data['title'] = 'NEWS';
+			$data = array();
 			$this->load->view('header',$data);
 			$this->load->view('home',$data);
 			$this->load->view('footer',$data);
 		}
 
+
+		public function goNews()
+		{
+			$this->load->model('newsmodel','',TRUE);
+			$data['news'] = array_reverse($this->newsmodel->get_all());
+
+			$data['title'] = 'NEWS';
+			$this->load->view('header',$data);
+			$this->load->view('news',$data);
+			$this->load->view('footer',$data);
+		}
+
 		public function login()
 		{
-			$this->load->view('header');
-			$this->load->view('login');
-			$this->load->view('footer');
+			$this->load->view('admin/admin_header');
+			$this->load->view('admin/login');
+			$this->load->view('admin/admin_footer');
 		}
 	
 		

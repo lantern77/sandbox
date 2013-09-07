@@ -10,12 +10,13 @@
 
 <?php
 
-echo "<h1> ". $title . "</h1>";
+echo "<h1 class='featurette-heading'> ". $title . "</h1>";
 echo "<h2> Hello ". $user. " <h2>";
+echo " <hr class='featurette-divider'>";
 
 
 
-echo " <table border='2'>";
+echo " <table class='table table-striped' border='2'>";
 	echo "<tr>";
 	echo "<th>Post ID</th>";
 	echo "<th>Post Name</th>";

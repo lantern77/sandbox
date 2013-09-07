@@ -32,16 +32,16 @@
 				$data['user'] = $session_user;
 				$data['news'] = array_reverse($this->newsmodel->get_all());
 
-				$this->load->view('header',$data);
-				$this->load->view('admin_view',$data);
-				$this->load->view('footer',$data);
+				$this->load->view('admin/admin_header',$data);
+				$this->load->view('admin/admin_view',$data);
+				$this->load->view('admin/admin_footer',$data);
 			}
 
 			else {
 				
-				$this->load->view('header');
-				$this->load->view('formFail');
-				$this->load->view('footer');
+				$this->load->view('admin/admin_header');
+				$this->load->view('admin/formFail');
+				$this->load->view('admin/admin_footer');
 			}
 		}
 
@@ -58,9 +58,9 @@
 			
 			if ($isUser == 0 || $isUser == 1)
 			{
-				$this->load->view('header');
-				$this->load->view('formFail');
-				$this->load->view('footer');
+				$this->load->view('admin/admin_header');
+				$this->load->view('admin/formFail');
+				$this->load->view('admin/admin_footer');
 				
 			}
 			if ($isUser == 2)
@@ -86,9 +86,9 @@
 			}
 			else
 			{
-				$this->load->view('header');
-				$this->load->view('formFail');
-				$this->load->view('footer');
+				$this->load->view('admin/admin_header');
+				$this->load->view('admin/formFail');
+				$this->load->view('admin/admin_footer');
 			}
 		}
 
@@ -102,15 +102,15 @@
 			$isSession = empty($session_user);
 			if ($isSession == FALSE) {
 			
-				$this->load->view('header',$info);
-				$this->load->view('newpost_view',$info);
-				$this->load->view('footer',$info);
+				$this->load->view('admin/admin_header',$info);
+				$this->load->view('admin/newpost_view',$info);
+				$this->load->view('admin/admin_footer',$info);
 			}
 			else
 			{
-				$this->load->view('header');
-				$this->load->view('formFail');
-				$this->load->view('footer');
+				$this->load->view('admin/admin_header');
+				$this->load->view('admin/formFail');
+				$this->load->view('admin/admin_footer');
 			}
 		}
 
@@ -138,9 +138,9 @@
 			}
 			else
 			{
-				$this->load->view('header');
-				$this->load->view('formFail');
-				$this->load->view('footer');
+				$this->load->view('admin/admin_header');
+				$this->load->view('admin/formFail');
+				$this->load->view('admin/admin_footer');
 			}
 		}
 
@@ -151,9 +151,9 @@
 			  $this->load->helper('url');
    			  $this->session->sess_destroy();
    			  $data['msg'] = 'Returning to home page';
-   			  $this->load->view('header');
-			  $this->load->view('formFail',$data);
-			  $this->load->view('footer');
+   			  $this->load->view('admin/admin_header');
+			  $this->load->view('admin/formFail',$data);
+			  $this->load->view('admin/admin_footer');
    			  
 
 

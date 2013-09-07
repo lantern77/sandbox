@@ -9,9 +9,8 @@
 
     <title>Software Engineering Club, McMaster University</title>
 
-
-	<?php
-	echo link_tag('dist/css/bootstrap.css'); ?>
+      <?php
+  echo link_tag('dist/css/bootstrap.css'); ?>
     <!-- Bootstrap core CSS -->
    <!-- <link href="dist/css/bootstrap.css" rel="stylesheet"> -->
 
@@ -24,4 +23,5 @@
     <!-- Custom styles for this template -->
     <?php echo link_tag('assets/css/carousel.css'); ?>
     <!-- <link href="assets/css/carousel.css" rel="stylesheet"> -->
+
   </head>

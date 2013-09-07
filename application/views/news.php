@@ -40,7 +40,7 @@
     </div>
 
 
-      <!-- Carousel
+    <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide">
       <!-- Indicators -->
@@ -105,110 +105,13 @@
 
     <div class="container marketing">
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <?php
-          $image_properties = array(
-          'class' => 'img-circle',
-          'src' => base_url().'assets/images/events.jpeg',
-          'alt' => 'Generic placeholder image');
-          echo img($image_properties);
-          ?>
-          <h2>Upcoming Events</h2>
-          <p>Yep. Ditch whatever you got going right now and head over to one of these. You DO NOT want to miss these. </p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-           <?php
-          $image_properties = array(
-          'class' => 'img-circle',
-          'src' => base_url().'assets/images/SE1.jpg',
-          'alt' => 'Generic placeholder image');
-          echo img($image_properties);
-          ?>
-          <h2>Our next meeting</h2>
-          <p>Next scheduled meeting is planned for Sept, 2013. Don't worry it won't be as boring as it sounds.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <?php
-          $image_properties = array(
-          'class' => 'img-circle',
-          'src' => base_url().'assets/images/cusec2013.jpeg',
-          'alt' => 'Generic placeholder image');
-          echo img($image_properties);
-          ?>
-          <h2>CUSEC</h2>
-          <p>We at SEC LOVE CUSEC. Keep in touch with us, if you want to have the time of your life.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-      <!--<hr class="featurette-divider">-->
-      
-      <h2 class="featurette-heading">Why Join the Software Engineering Club?</h2>
+      <h2 class="featurette-heading">The News : Updates</h2>
       
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">We host EPIC NIGHTS. <span class="text-muted">How could you not want to attend those?</span></h2>
-          <!--<p class="lead">poolNights = networking + freeFood + aTonOfFun;</p>-->
-        </div>
-        <div class="col-md-5">
-          <?php
-          $image_properties = array(
-          'class' => 'featurette-image img-responsive',
-          'src' => base_url().'assets/images/pool_night.jpg',
-          'alt' => 'Generic placeholder image');
-          echo img($image_properties);
-          ?>
-        </div>
-      </div>
+      
 
-      <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-5">
-          <?php
-          $image_properties = array(
-          'class' => 'featurette-image img-responsive',
-          'src' => base_url().'assets/images/women_computing.jpg',
-          'alt' => 'Generic placeholder image');
-          echo img($image_properties);
-          ?>
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">We're all for Women in Computing. <span class="text-muted">Join SEC and see for yourself!</span></h2>
-
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, YOUR MOM. <span class="text-muted">Checkmate.</span></h2>
-          
-        </div>
-        <div class="col-md-5">
-          <?php
-          $image_properties = array(
-          'class' => 'featurette-image img-responsive',
-          'src' => base_url().'assets/images/beer.jpg',
-          'alt' => 'Generic placeholder image');
-          echo img($image_properties);
-          ?>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
 
 
      
