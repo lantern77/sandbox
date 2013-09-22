@@ -1,6 +1,6 @@
 <html>
 <head>
-<title> Login Failed </title>
+<title> <?php $isMsg = empty($msg); if (!$isMsg) { echo $msg; } ?>  </title>
 <meta http-equiv="refresh" content="2;url=/sandbox">
 </head>
 <body>

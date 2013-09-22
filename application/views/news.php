@@ -109,10 +109,43 @@
       
       <hr class="featurette-divider">
 
-      
+      <?php
+
+      if  ($news)
+      {
+          foreach ($news as $newsItem)
+         {
+            echo "<div class='newsItem'> ";
+            $title = $newsItem->name;
+            $date = $newsItem->date;
+            $content = $newsItem->content;
+
+            echo "<h2>" .$title."</h2>";
+            echo "<h3>" .$date."</h3>";
+            echo "<br/>";
+            echo "<h3>" .$content."</h3>";
+            echo "<hr class='featurette-divider'>";
+            echo "</div>";
+
+         }
+
+         echo "<ul class='pagination'>";
+         echo "<li><a href='#''>&laquo;</a></li>";
+         for ($i = 1; $i <= $numPages; $i++)
+         {
+              $anc = anchor(base_url().index_page().'/main/goNews/'.$i, $i, '');     
+              echo "<li>".$anc."</li>";
+         }
+         echo "<li><a href='#''>&laquo;</a></li>";
+         echo "</ul>";
+       }
+       else
+       {
+        echo "<h1> There is currently no news items</h1>";
+       }
 
 
-
+      ?>
 
      
   </body>

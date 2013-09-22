@@ -30,10 +30,13 @@
 		}
 
 
-		public function goNews()
+		public function goNews($page = 1)
 		{
 			$this->load->model('newsmodel','',TRUE);
-			$data['news'] = array_reverse($this->newsmodel->get_all());
+			$itemsperpage = 3;
+			$fullList = array_reverse($this->newsmodel->get_all());
+			$data['news'] = array_slice($fullList, ($page - 1) * $itemsperpage, $itemsperpage);
+			$data['numPages'] = ceil(sizeof($fullList) / $itemsperpage);
 
 			$data['title'] = 'NEWS';
 			$this->load->view('header',$data);

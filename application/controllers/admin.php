@@ -134,7 +134,14 @@
 				$this->load->model('newsmodel','',TRUE);
 				$this->newsmodel->insert($array);
 
-				$this->postsMenu();
+				$data['title'] = 'Admin Menu';
+				$data['user'] = $session_user;
+				$data['news'] = array_reverse($this->newsmodel->get_all());
+
+				//$this->postsMenu();
+				$this->load->view('admin/admin_header',$data);
+				$this->load->view('admin/admin_view',$data);
+				$this->load->view('admin/admin_footer',$data);
 			}
 			else
 			{
