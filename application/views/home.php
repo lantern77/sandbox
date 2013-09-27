@@ -129,7 +129,7 @@
           ?>
           <h2>Our next meeting</h2>
           <p>Next scheduled meeting is planned for Sept, 2013. Don't worry it won't be as boring as it sounds.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+          <p><a data-toggle="modal" href="#nextMeeting" class="btn btn-default">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <?php
@@ -192,14 +192,14 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, YOUR MOM. <span class="text-muted">Checkmate.</span></h2>
+          <h2 class="featurette-heading">And lastly, VIDEO GAMES. <span class="text-muted">Checkmate.</span></h2>
           
         </div>
         <div class="col-md-5">
           <?php
           $image_properties = array(
           'class' => 'featurette-image img-responsive',
-          'src' => base_url().'assets/images/beer.jpg',
+          'src' => base_url().'assets/images/video_games.jpg',
           'alt' => 'Generic placeholder image');
           echo img($image_properties);
           ?>
@@ -211,6 +211,67 @@
       <!-- /END THE FEATURETTES -->
 
 
-     
-  </body>
-</html>
+      <!----- MODALS START ------>
+    <!-- Modal Next Meeting-->
+      <div class="modal fade" id="nextMeeting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">SEClub Next Meeting:</h4>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li>When: 6:30pm on Thursday, September 26th, 2013</li>
+                <li>Where:ITB 235</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <!-- Modal About-->
+      <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">About</h4>
+            </div>
+            <div class="modal-body">
+              <p>We are a group of students passionate about the Software Engineering program, but that's not all we want to do. We want to go out, meet new people, make new friends and enjoy ourselves while we have this fantastic opportunity to do so. And we'd love for you to join us whether or not you're in the program.</p>
+              <p>So come out and join us for our weekly meetings on Thursdays at 6:30pm in ITB, Room 235. We promise to be nice to you and we'll find something for you to get involved with to boost up your Resume.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      
+      <!-- Modal Contact-->
+      <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Get in touch with us!</h4>
+            </div>
+            <div class="modal-body">
+              <p>If you have any questions or comments about our club, get in touch with us via:</p>
+              <ul>
+                <li>Email: sec at mcmaster dot ca</li>
+              </ul>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+    <!----- MODALS END ------>
+ 
