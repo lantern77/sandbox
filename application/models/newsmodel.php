@@ -17,6 +17,11 @@
 		public $_table = 'posts';
 
 
+		function __construct()
+		{
+			parent::__construct();
+		}
+
 		/*
 			Function Name: addNewsItem ($author, $title, $content, $blurb)
 			Parameters:    $author  : Author of the post
@@ -27,8 +32,9 @@
 			Description:   Adds a news item to the posts / main page
 		*/
 
-		public function addNewsItem ($author, $title, $content, $blurb = "") {
+		public function addNewsItem ($author, $title, $date,  $content, $blurb = "") {
 
+			$this->db->query('INSERT INTO '. $this->_table . '(name, author, date, content) VALUES ('.$this->db->escape($title).','.$this->db->escape($author).','.$this->db->escape($date).','.$this->db->escape($content).');');
 
 		}
 

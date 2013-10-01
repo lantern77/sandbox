@@ -14,6 +14,7 @@
 
 		public $isLogged = 0;
 		public $user = NULL;
+		
 
 		public function index() {
 			$this->postsMenu();
@@ -21,9 +22,12 @@
 
 		public function postsMenu() {
 
+			// Setup Session
 			$this->load->library('session');
 			$session_user = $this->session->userdata('logged_in');
 			$isSession = empty($session_user);
+
+
 			if ($isSession == FALSE) {
 
 				$this->load->model('newsmodel','',TRUE);
@@ -39,10 +43,17 @@
 
 			else {
 				
-				$this->load->view('admin/admin_header');
-				$this->load->view('admin/formFail');
-				$this->load->view('admin/admin_footer');
+				$data['msg'] = 'Login Unsuccessful! Returning to home page';
+   			  	$data['url'] = $this-> redirectURL('');
+				$this->formRedirect($data);
 			}
+		}
+
+		public function formRedirect($data)
+		{
+				$this->load->view('admin/admin_header',$data);
+				$this->load->view('admin/formFail',$data);
+				$this->load->view('admin/admin_footer',$data);
 		}
 
 		public function login() {
@@ -58,10 +69,9 @@
 			
 			if ($isUser == 0 || $isUser == 1)
 			{
-				$this->load->view('admin/admin_header');
-				$this->load->view('admin/formFail');
-				$this->load->view('admin/admin_footer');
-				
+				$data['msg'] = 'Login Unsuccessful! Returning to home page';
+   			  	$data['url'] = $this-> redirectURL('');
+				$this->formRedirect($data);
 			}
 			if ($isUser == 2)
 			{
@@ -86,9 +96,9 @@
 			}
 			else
 			{
-				$this->load->view('admin/admin_header');
-				$this->load->view('admin/formFail');
-				$this->load->view('admin/admin_footer');
+				$data['msg'] = 'Login Unsuccessful! Returning to home page';
+   			  	$data['url'] = $this-> redirectURL('');
+				$this->formRedirect($data);
 			}
 		}
 
@@ -108,9 +118,9 @@
 			}
 			else
 			{
-				$this->load->view('admin/admin_header');
-				$this->load->view('admin/formFail');
-				$this->load->view('admin/admin_footer');
+				$data['msg'] = 'Login Unsuccessful! Returning to home page';
+   			  	$data['url'] = $this-> redirectURL('');
+				$this->formRedirect($data);
 			}
 		}
 
@@ -125,29 +135,28 @@
 				$post_author=$session_user;
 				$post_text=$this->input->post('content');
 
-				$array = array("name" => "".$post_name,
-							   "author" => "".$post_author,
-							   "date" =>  "".date("Y-m-d H:i:s"),
-							   "content" => "".$post_text,
+				$array = array("name" => ''.$post_name,
+							   "author" => ''.$post_author,
+							   "date" =>  ''.date("Y-m-d H:i:s"),
+							   "content" => ''.$post_text);
 
-					);
+
+
 				$this->load->model('newsmodel','',TRUE);
-				$this->newsmodel->insert($array);
+				//$insertid = $this->newsmodel->insert($array);
+				//$data['msg'] = $insertid; 
+				$this->newsmodel->addNewsItem($array['author'],$array['name'],$array['date'],$array['content'],'');
+				$data['msg'] = 'New Post Created! Going back to Admin Panel';
+   			  	$data['url'] = $this-> redirectURL('admin/postsMenu');
+				$this->formRedirect($data);
 
-				$data['title'] = 'Admin Menu';
-				$data['user'] = $session_user;
-				$data['news'] = array_reverse($this->newsmodel->get_all());
-
-				//$this->postsMenu();
-				$this->load->view('admin/admin_header',$data);
-				$this->load->view('admin/admin_view',$data);
-				$this->load->view('admin/admin_footer',$data);
+	
 			}
 			else
 			{
-				$this->load->view('admin/admin_header');
-				$this->load->view('admin/formFail');
-				$this->load->view('admin/admin_footer');
+				$data['msg'] = 'Login Unsuccessful! Returning to home page';
+   			  	$data['url'] = $this-> redirectURL('');
+				$this->formRedirect($data);
 			}
 		}
 
@@ -158,13 +167,15 @@
 			  $this->load->helper('url');
    			  $this->session->sess_destroy();
    			  $data['msg'] = 'Returning to home page';
-   			  $this->load->view('admin/admin_header');
-			  $this->load->view('admin/formFail',$data);
-			  $this->load->view('admin/admin_footer');
+   			  $data['url'] = $this-> redirectURL('');
+   			  $this->formRedirect($data);	
    			  
+		}
 
-
-
+		public function redirectURL ($page)
+		{
+			$url = site_url().'/'.$page;
+			return $url;
 		}
 
 		

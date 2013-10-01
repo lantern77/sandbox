@@ -1,7 +1,7 @@
 <h1> NEW POST </h1>
 
 
-<form action="/sandbox/index.php/admin/newPost/" method='post'>
+<form action="<?php echo site_url().'/admin/newPost/'?>" method='post'>
 
 	<label>Post Name: </label> <br/>
 	<input type="text" name="postName" id="postnameInput" > <br />
