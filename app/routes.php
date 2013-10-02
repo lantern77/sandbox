@@ -35,3 +35,41 @@ Route::resource('news','NewsController',
  */
 Route::resource('about','AboutController',
     array('only' => array('index')));
+
+
+
+/*
+ * ********************************************************************************
+ * ADMIN ROUTES
+ * ********************************************************************************
+ */
+//Routes
+Route::resource('admin/news','AdminNewsController');
+Route::resource('admin','AdminController');
+//Filters
+Route::when("admin/*","auth");
+Route::when("admin","auth");
+
+
+/*
+ * *******************************************************************************
+ * Login and Logout Routes
+ * *******************************************************************************
+ */
+Route::get('login',function()
+    {
+        return View::make('base.login');
+    }
+);
+
+Route::post('login',function()
+    {
+        return "Post";
+    }
+);
+Route::get('logout',function()
+    {
+        Auth::logout();
+        return Redirect::to('login');
+    }
+);
