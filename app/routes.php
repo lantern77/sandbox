@@ -11,7 +11,27 @@
 |
 */
 
+/*
+ * Base Route
+ * ==========
+ * Will get the index
+ */
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('base.base');
 });
+
+/*
+ * News Routes
+ * ===========
+ * Will be handled by RESTFUL Controller
+ */
+Route::resource('news','NewsController',
+    array('only' => array('index', 'show')));
+/*
+ * About Route
+ * ===========
+ * Currently just an index function. We can add other components to it later
+ */
+Route::resource('about','AboutController',
+    array('only' => array('index')));
