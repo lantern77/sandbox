@@ -26,13 +26,17 @@
   <body>
 
     <div class="container">
-
-      <form class="form-signin">
+        @if(Session::get('error') || isset($error))
+        <div class="alert alert-danger">
+            <strong>Uh Oh!</strong> {{Session::get('error')}} {{isset($error) ? $error : ""}}
+        </div>
+        @endif
+      <form class="form-signin" action="" method="POST">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" placeholder="Email address" autofocus>
-        <input type="password" class="form-control" placeholder="Password">
+        <input name="email" type="text" class="form-control" value="{{isset($email) ? $email : ""}}" placeholder="Email address" autofocus>
+        <input name="password" type="password" class="form-control" placeholder="Password">
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
+          <input name="remember" type="checkbox" value="1"> Remember me
         </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>

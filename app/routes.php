@@ -45,6 +45,7 @@ Route::resource('about','AboutController',
  */
 //Routes
 Route::resource('admin/news','AdminNewsController');
+Route::resource('admin/users','AdminUsersController');
 Route::resource('admin','AdminController');
 //Filters
 Route::when("admin/*","auth");
@@ -64,7 +65,37 @@ Route::get('login',function()
 
 Route::post('login',function()
     {
-        return "Post";
+        //Get Login credentials
+        $email = Input::get("email");
+        $password = Input::get("password");
+        $rememberMe = Input::get("remember") ? true : false;
+
+        //Validate Login Creds
+        $validator = Validator::make(
+           array('email' => $email, 'password' => $password),
+           array('email' => array('email','required'),
+                "password" => array("required"))
+            );
+        if($validator->fails())
+        {
+            $mes = "";
+            foreach($validator->messages()->all("<p>:message</p>") as $m)
+            {
+                $mes .= $m;
+            }
+            return Redirect::to("login")
+                ->with("error",$mes);
+        } 
+
+        //Validation has passed not its time to see if the email and password match someone
+        if(Auth::attempt(array('email' => $email, 'password' => $password),$rememberMe))
+        {
+            return Redirect::intended('admin');
+        }else{
+            return View::make("base.login")
+                ->with("error","The supplied credentials are incorrect. Please try again")
+                ->with("email",$email);
+        }
     }
 );
 Route::get('logout',function()
