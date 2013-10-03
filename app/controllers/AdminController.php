@@ -10,7 +10,7 @@ class AdminController extends \BaseController {
 	public function index()
 	{
         //
-        return "Admin";
+        return View::make("admin.index");
 	}
 
 	/**

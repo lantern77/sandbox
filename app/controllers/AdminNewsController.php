@@ -10,7 +10,7 @@ class AdminNewsController extends \BaseController {
 	public function index()
 	{
         //
-        return "AdminNews";
+        return View::make("admin.news.index");
 	}
 
 	/**
