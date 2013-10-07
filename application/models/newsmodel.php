@@ -34,8 +34,8 @@
 
 		public function addNewsItem ($author, $title, $date,  $content, $blurb = "") {
 
-			$this->db->query('INSERT INTO '. $this->_table . '(name, author, date, content) VALUES ('.$this->db->escape($title).','.$this->db->escape($author).','.$this->db->escape($date).','.$this->db->escape($content).');');
-
+			$isSuccess = $this->db->query('INSERT INTO '. $this->_table . '(name, author, date, content) VALUES ('.$this->db->escape($title).','.$this->db->escape($author).','.$this->db->escape($date).','.$this->db->escape($content).');');
+			return $isSuccess;
 		}
 
 		/*

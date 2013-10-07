@@ -12,28 +12,30 @@
 */
 	class Admin extends CI_Controller {
 
-		public $isLogged = 0;
+		public $isUser = 0;
+		public $isSession = NULL;
 		public $user = NULL;
 		
 
+		function __construct() {
+     		  parent::__construct();
+     		  $this->user = $this->getUser();
+   		}
+
 		public function index() {
 			$this->postsMenu();
+			
 		}
 
 		public function postsMenu() {
 
-			// Setup Session
-			$this->load->library('session');
-			$session_user = $this->session->userdata('logged_in');
-			$isSession = empty($session_user);
 
-
-			if ($isSession == FALSE) {
+			if ($this->isSession == FALSE) {
 
 				$this->load->model('newsmodel','',TRUE);
 
 				$data['title'] = 'Admin Menu';
-				$data['user'] = $session_user;
+				$data['user'] = $this->user;
 				$data['news'] = array_reverse($this->newsmodel->get_all());
 
 				$this->load->view('admin/admin_header',$data);
@@ -43,18 +45,12 @@
 
 			else {
 				
-				$data['msg'] = 'Login Unsuccessful! Returning to home page';
-   			  	$data['url'] = $this-> redirectURL('');
-				$this->formRedirect($data);
+				$this->redirect('Login Unsuccessful! Returning to home page','');
+				
 			}
 		}
 
-		public function formRedirect($data)
-		{
-				$this->load->view('admin/admin_header',$data);
-				$this->load->view('admin/formFail',$data);
-				$this->load->view('admin/admin_footer',$data);
-		}
+	
 
 		public function login() {
 			$this->load->model('adminModel','',TRUE);
@@ -78,16 +74,18 @@
 				$this->load->library('session');
 				$this->user = $login_user;
        			$this->session->set_userdata('logged_in', $login_user);
+       			$this->user = $this->getUser();	
 				$this->postsMenu();
 			}
 		}
 
 		public function deletePost($id)
 		{
-			$this->load->library('session');
-			$session_user = $this->session->userdata('logged_in');
-			$isSession = empty($session_user);
-			if ($isSession == FALSE) 
+			
+			
+
+
+			if ($this->isSession == FALSE) 
 			{
 				$this->load->model('newsmodel','',TRUE);
 				$this->newsmodel->delete($id);
@@ -96,68 +94,88 @@
 			}
 			else
 			{
-				$data['msg'] = 'Login Unsuccessful! Returning to home page';
-   			  	$data['url'] = $this-> redirectURL('');
-				$this->formRedirect($data);
+				$this->redirect('Login Unsuccessful! Returning to home page','');
 			}
 		}
 
-		public function newpostload($user)
+		public function getPostData()
 		{
-			$this->load->model('adminModel','',TRUE);
-			$info['info'] = $this->adminModel->get_all();
-		
-			$this->load->library('session');
-			$session_user = $this->session->userdata('logged_in');
-			$isSession = empty($session_user);
-			if ($isSession == FALSE) {
 			
-				$this->load->view('admin/admin_header',$info);
-				$this->load->view('admin/newpost_view',$info);
-				$this->load->view('admin/admin_footer',$info);
-			}
-			else
-			{
-				$data['msg'] = 'Login Unsuccessful! Returning to home page';
-   			  	$data['url'] = $this-> redirectURL('');
-				$this->formRedirect($data);
-			}
-		}
+			
 
-		public function newPost ()
-		{
-			$this->load->library('session');
-			$session_user = $this->session->userdata('logged_in');
-			$isSession = empty($session_user);
-			if ($isSession == FALSE) 
+			if ($this->isSession == FALSE) 
 			{
 				$post_name=$this->input->post('postName');
-				$post_author=$session_user;
+				$post_author= strval($this->user);
 				$post_text=$this->input->post('content');
 
 				$array = array("name" => ''.$post_name,
 							   "author" => ''.$post_author,
 							   "date" =>  ''.date("Y-m-d H:i:s"),
 							   "content" => ''.$post_text);
+				$this->newPost($array, $this->isSession);
+			} else {
 
+				$this->redirect('Login Unsuccessful! Returning to home page','');
+			}
 
+		}
 
-				$this->load->model('newsmodel','',TRUE);
-				//$insertid = $this->newsmodel->insert($array);
-				//$data['msg'] = $insertid; 
-				$this->newsmodel->addNewsItem($array['author'],$array['name'],$array['date'],$array['content'],'');
-				$data['msg'] = 'New Post Created! Going back to Admin Panel';
-   			  	$data['url'] = $this-> redirectURL('admin/postsMenu');
-				$this->formRedirect($data);
-
-	
+		public function newpostload()
+		{
+			
+			
+			
+			if ($this->isSession == FALSE) {
+			
+				$this->load->view('admin/admin_header');
+				$this->load->view('admin/newpost_view');
+				$this->load->view('admin/admin_footer');
 			}
 			else
 			{
-				$data['msg'] = 'Login Unsuccessful! Returning to home page';
-   			  	$data['url'] = $this-> redirectURL('');
-				$this->formRedirect($data);
+				$this->redirect('Login Unsuccessful! Returning to home page','');
 			}
+		}
+
+		public function newPost ($array, $isSession)
+		{
+			
+			 	
+				$this->load->model('newsmodel','',TRUE);
+				//$insertid = $this->newsmodel->insert($array);
+				
+				$isArray = isset($array['name']);
+
+				if ($isArray)
+				{
+						
+						$this->newsmodel->addNewsItem($array['author'],$array['name'],$array['date'],$array['content'],'');
+						$this->redirect('New Post Created! Going back to Admin Panel','admin/postsMenu');	
+				}
+				else
+				{
+					$this->redirect('#seriousdoe, why you trying to break the site? ... your going back to the homepage','');
+					
+				}
+	
+		}
+
+	
+		public function getUser()
+		{
+			$this->load->library('session');
+			$session_user = $this->session->userdata('logged_in');
+			$this->isSession = empty($session_user);
+			if ($this->isSession == FALSE)
+			{
+				return $session_user;
+			}
+			else
+			{
+				return FALSE;
+			}
+			
 		}
 
 		public function logout()
@@ -166,16 +184,30 @@
 			  $this->session->unset_userdata('logged_in');
 			  $this->load->helper('url');
    			  $this->session->sess_destroy();
-   			  $data['msg'] = 'Returning to home page';
-   			  $data['url'] = $this-> redirectURL('');
-   			  $this->formRedirect($data);	
-   			  
+   			  $this->redirect('Returning to the home page','');  
 		}
 
+
+		/** REDIRECTION CODE **/
 		public function redirectURL ($page)
 		{
 			$url = site_url().'/'.$page;
 			return $url;
+		}
+
+		public function formRedirect($data)
+		{
+				$this->load->view('admin/admin_header',$data);
+				$this->load->view('admin/formFail',$data);
+				$this->load->view('admin/admin_footer',$data);
+		}
+
+		public function redirect($msg, $url)
+		{
+			$link = $this->redirectURL($url);
+			$data['msg'] = $msg;
+			$data['url'] = $link;
+			$this->formRedirect($data);
 		}
 
 		

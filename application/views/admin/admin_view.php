@@ -1,5 +1,5 @@
 
-<?php echo "<form action='/sandbox/index.php/admin/newpostload/".$user."' method='post'>"; ?>
+<?php echo "<form action='/sandbox/index.php/admin/newpostload/' method='post'>"; ?>
 <input type="submit" value="New Post"> 
 </form>
 
