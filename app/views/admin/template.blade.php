@@ -99,6 +99,6 @@
     <script src="/js/styles.js"></script>
     <script src="/js/config.js"></script>
     <script src="/js/en.js"></script>
-  
+@yield("scripts")  
 
 </body></html>

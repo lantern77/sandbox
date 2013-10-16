@@ -63,7 +63,7 @@ class AdminNewsController extends \BaseController {
                return $str;
            }else{
                $id = DB::table("news")->insertGetId($inputs);
-               return $id;
+               return Redirect::to("/admin/news");
            }
 	}
 

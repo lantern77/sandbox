@@ -78,8 +78,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/learn/tutorials">Tutorials</a></li>
-                            <li><a href="/learn/resources">Resources</a></li>
+                            <li><a href="/tutorials">Tutorials</a></li>
+                            <li><a href="/resources">Resources</a></li>
                         </ul>
                 </li>
 

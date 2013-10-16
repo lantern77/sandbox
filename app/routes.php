@@ -28,6 +28,8 @@ Route::get('/', function()
  */
 Route::resource('news','NewsController',
     array('only' => array('index', 'show')));
+Route::resource('tutorials','TutorialsController',
+    array('only' => array('index', 'show')));
 /*
  * About Route
  * ===========
@@ -46,6 +48,7 @@ Route::controller('events','EventsController');
  */
 //Routes
 Route::resource('admin/news','AdminNewsController');
+Route::resource('admin/tutorials','AdminTutorialsController');
 Route::resource('admin/users','AdminUsersController');
 Route::resource('admin','AdminController');
 //Filters
