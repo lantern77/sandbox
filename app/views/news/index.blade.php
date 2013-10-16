@@ -1,11 +1,13 @@
 @extends('template')
 
 @section('content')
+<div class="jumbotron">
     @foreach($news as $n)
     <div class="row text-center">    
-    <h1><a href="/news/{{$n->id}}">{{$n->title}}</a></h1>
-    <p>{{$n->brief_intro}}</p>
+    <h3><a href="/news/{{$n->id}}">{{$n->title}}</a></h3>
+    {{$n->brief_intro}}
     </div>
 
     @endforeach
+</div>
 @stop

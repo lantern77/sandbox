@@ -33,8 +33,9 @@ Route::resource('news','NewsController',
  * ===========
  * Currently just an index function. We can add other components to it later
  */
-Route::resource('about','AboutController',
-    array('only' => array('index')));
+Route::controller('about','AboutController');
+Route::controller('learn','LearnController');
+Route::controller('events','EventsController');
 
 
 

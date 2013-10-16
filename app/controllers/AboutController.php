@@ -7,10 +7,22 @@ class AboutController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
         //
         return View::make('about.index');
-	}
+    }
+    public function getHistory(){
+        return View::make('about.history');
+    }
+    public function getExecutives(){
+        return View::make('about.executives');
+    }
+    public function getMembers(){
+        return View::make('about.members');
+    }
+    public function getSponsors(){
+        return View::make('about.sponsors');
+    }
 
 }

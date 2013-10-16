@@ -56,7 +56,6 @@ class NewsController extends \BaseController {
             $news = DB::table("news")
                 ->where("published",1)
                 ->where("display_date","<",date("Y-m-d H:i:s"))
-                ->where("end_publish_date",">",date("Y-m-d H:i:s"))
                 ->take(5)
                 ->get();
         }else{

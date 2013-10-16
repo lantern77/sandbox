@@ -1,12 +1,38 @@
 @extends('template')
 
 @section('content')
+<div class="jumbotron">
         <div class="page-header">
           <h1>Welcome to the McMaster Software Engineering Club</h1>
         </div>
-        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
-        <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
-
+        <p class="lead">
+            Come one, come all! Here at the McMaster Software Engineering Club we strive to push the software engineering discipline at McMaster University.
+        </p>
+</div>
+{{-- Random things --}}
+<div class="row col-wrap">
+    <div class="col-sm-4 col">
+        <div class="panel text-center">
+            <h2>Open Source</h2>
+            <img src="http://opensource.org/files/osi_standard_logo.png" width="175" height="200" alt="open source">
+        </div>
+    </div>
+    <div class="col-sm-4 col">
+        <div class="panel">
+            <h4>Recent News</h4>
+            <h1>News 1</h1>
+            <p> Events are great</p> 
+            <h1>News 2</h1>
+            <p> Events are great</p> 
+        </div>
+    </div>
+    <div class="col-sm-4 col">
+        <div class="panel">
+            <h4>Up Coming Tutorials</h4>
+            Laravel Web Development
+        </div>
+    </div>
+</div>
 
 @stop
 

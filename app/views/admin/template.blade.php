@@ -1,129 +1,104 @@
-<!DOCTYPE html>
-<html class="no-js">
-    
-    <head>
-        <title>Admin Home Page</title>
-        <!-- Bootstrap -->
-        <link href="/css/admin/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="/css/admin/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="/css/admin/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-        <link href="/css/admin/styles.css" rel="stylesheet" media="screen">
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <script src="/js/admin/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="/admin">Admin Panel</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right">
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> {{Auth::user()->email}} <i class="caret"></i>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <link href='http://fonts.googleapis.com/css?family=Alef:400,700|Roboto+Slab' rel='stylesheet' type='text/css'>
 
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="#">Profile</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a tabindex="-1" href="/logout">Logout</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="/admin">Dashboard</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Content <i class="caret"></i>
+    <title>Software Engineering Club - Administration</title>
 
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="/admin/news">News</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="/admin/about">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="/admin/events">Events</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="/admin/faq">FAQ</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Users <i class="caret"></i>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
 
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="/admin/users">User List</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="/admin/users/create">New User</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/.nav-collapse -->
-                </div>
-            </div>
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/admin/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/admin">SEClub Admininstration</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/admin/news">News</a></li>
+            <li><a href="/admin/users">Users</a></li>
+            <li><a href="/admin/tutorials">Tutorials</a></li>
+            <li><a href="/admin/events">Events</a></li>
+            <!--<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>-->
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown navbar-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->email}} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/admin/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+                </ul>              
+          </li>
+        </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 
- <div class="container-fluid">
-            <div class="row-fluid">
-<div class="span3" id="sidebar">
-                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                        <li class="active">
-                            <a href="/admin"><i class="icon-chevron-right"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/admin/events"><i class="icon-chevron-right"></i> Calendar</a>
-                        </li>
-                        <li>
-                            <a href="/admin/stats"><i class="icon-chevron-right"></i> Statistics (Charts)</a>
-                        </li>
-                        <li>
-                            <a href="/admin/gallery"><i class="icon-chevron-right"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="badge badge-success pull-right">731</span> New Users</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="span9" id="content">
-                    @yield("content")
-                </div>
-            </div>
-            <hr>
-            <footer>
-                <p>© McMaster Software Engineering Club 2013</p>
-            </footer>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div id="mainContainer" class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-3">
+        <div class="well sidebar-nav">
+            <ul class="nav">
+                @yield("sideMenu")
+              <h3>Quick Links</h3>
+              <li><a href="/admin/news/create">New News Story</a></li>
+              <li><a href="#">New Tutorial</a></li>
+              <li><a href="#">New Event</a></li>
+            </ul>
+          </div> 
         </div>
-<!--/.fluid-container-->
-        <script src="/js/admin/jquery-1.9.1.min.js"></script>
-        <script src="/js/admin/bootstrap.min.js"></script>
-        <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-        <script src="/js/admin/scripts.js"></script>
-        <script>
-        $(function() {
-            // Easy pie charts
-            $('.chart').easyPieChart({animate: 1000});
-            });
-        </script>
-    </body>
-</html>
+        <div class="col-lg-9">
+            <div class="jumbotron">
+                @yield('content')
+            </div>
+       </div>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/ckeditor.js"></script>
+    <script src="/js/styles.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/en.js"></script>
+  
+
+</body></html>

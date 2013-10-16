@@ -9,61 +9,117 @@
 
     <title>McMaster Software Engineering Club</title>
 
+    <link href='http://fonts.googleapis.com/css?family=Alef:400,700|Roboto+Slab' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/lightbox.css" rel="stylesheet">
   </head>
 
   <body>
+    <section class="container">
+        <header class="row" id="header">
+        <!-- Begin grid -->
+            <div class="col-sm-9">
+                <h1>McMaster SEClub</h1>
+            </div>
+            <div class="col-sm-3">
+                <div class="announce well well-sm">
+                    <h4>No Upcoming Events</h4>
+                </div>
+            </div>
+        <!-- End grid -->
+        </header> <!-- header -->
+    </section>
 
-    <!-- Wrap all page content here -->
-    <div id="wrap">
-
-      <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+    <nav class="navbar navbar-inverse container" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">:seclub@MAC</a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class=""><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/news">News</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+            <a class="navbar-brand" href="/">Home</a>
         </div>
-      </div>
-<!-- Begin Content -->
-      <div class="container">
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/news">Current News</a></li>
+                            <li><a href="/news">Past News</a></li>
+                        </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/about/">What are we</a></li>
+                            <li><a href="/about/history">History</a></li>
+                            <li><a href="/about/executives">Current Executives</a></li>
+                            <li><a href="/about/members">Current Members</a></li>
+                            <li><a href="/about/sponsors">Current Sponsors</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/about">Want to be a Sponsors?</a></li>
+                        </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/events/cusec">CUSEC</a></li>
+                            <li><a href="/events/current">Current Events</a></li>
+                            <li><a href="/events/past">Past Events</a></li>
+                            <li><a href="/events/gallery">Event Gallery</a></li>
+                        </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/learn/tutorials">Tutorials</a></li>
+                            <li><a href="/learn/resources">Resources</a></li>
+                        </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+{{-- Main Body --}}
+    <div class="container">
         @yield('content')
-      </div>
-      </div>
-<!-- End Content -->
-    <div id="footer">
-      <div class="container">
-        Software Engineering Club
-      </div>
     </div>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+
+{{--Footer--}}
+
+    <footer class="container" id="footer">
+        <div class="row text-center">
+            <div class="col-sm-3">
+                <h4>Previous</h4>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Social</h4>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Media</h4>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Contact</h4>
+            </div>
+
+            <div class="col-1"></div>
+        </div> <!--row-->
+    </footer>
+
+<!--JS Files-->
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/lightbox-2.6.min.js"></script>
   </body>
 </html>

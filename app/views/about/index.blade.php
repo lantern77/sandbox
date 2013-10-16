@@ -1,5 +1,7 @@
 @extends('template')
 
 @section('content')
-<p>About everything</p>
+<div class="jumbotron">
+    <h3>About everything</h3>
+</div>
 @stop

@@ -10,7 +10,7 @@ class AdminUsersController extends \BaseController {
 	public function index()
 	{
         //
-        return "List of Users";
+        return View::make("admin.users.index");
 	}
 
 	/**
