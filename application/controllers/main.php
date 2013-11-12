@@ -51,5 +51,7 @@
 			$this->load->view('admin/admin_footer');
 		}
 	
+
+		
 		
 	}

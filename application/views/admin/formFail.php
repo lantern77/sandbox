@@ -1,7 +1,7 @@
 <html>
 <head>
 <title> <?php $isMsg = empty($msg); if (!$isMsg) { echo $msg; } ?>  </title>
-<meta http-equiv="refresh" content="2;url=/sandbox">
+<meta http-equiv="refresh" content="2;url=<?php echo $url; ?>">
 </head>
 <body>
 <?php $isMsg = empty($msg); if (!$isMsg): ?>

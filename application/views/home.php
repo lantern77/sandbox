@@ -18,7 +18,7 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><?php echo anchor(base_url().index_page().'/main/goHome', 'Home', ''); ?><!--<a href="/sandbox/">Home</a>--></li>
-                <li><a href="#about">About</a></li>
+                <li><?php echo anchor(base_url().index_page().'', 'About', ''); ?></li>
                  <li><?php echo anchor(base_url().index_page().'/main/goNews', 'News', ''); ?></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="dropdown">

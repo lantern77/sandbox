@@ -141,7 +141,7 @@
        }
        else
        {
-        echo "<h1> There is currently no news items</h1>";
+        echo "<h1> There is currently no news items,</h1>";
        }
 
 
