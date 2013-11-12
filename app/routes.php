@@ -18,7 +18,9 @@
  */
 Route::get('/', function()
 {
-	return View::make('base.base');
+    $events = DB::table('events')->where('time',">",time())->take(2)->get();
+    return View::make('base.base')
+        ->with("events",$events);
 });
 
 /*

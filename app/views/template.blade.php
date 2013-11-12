@@ -69,9 +69,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/events/cusec">CUSEC</a></li>
-                            <li><a href="/events/current">Current Events</a></li>
+                            <li><a href="/events/">Current Events</a></li>
                             <li><a href="/events/past">Past Events</a></li>
+                            <li><a href="/events/cusec">CUSEC</a></li>
                             <li><a href="/events/gallery">Event Gallery</a></li>
                         </ul>
                 </li>

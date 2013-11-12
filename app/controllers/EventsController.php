@@ -9,14 +9,20 @@ class EventsController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-        //
-        return View::make('events.index');
+        //get events
+        
+        $events = DB::table('events')->where('time',">",time())->get();
+        return View::make('events.index')
+            ->with("events",$events);
     }
     public function getCusec(){
         return View::make('events.cusec');
     }
     public function getPast(){
-        return View::make('events.past');
+        //Get Past Events
+        $events = DB::table('events')->where('time',"<=",time())->get();
+        return View::make('events.past')
+            ->with("events",$events);
     }
     public function getGallery(){
         return View::make('events.gallery');
