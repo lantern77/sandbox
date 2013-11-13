@@ -1,0 +1,12 @@
+.container{
+    width:100%;
+    max-width:100%;
+}
+#mainContainer {
+    margin-top:60px;
+}
+.items{
+    font-weight:bold;
+    display:inline-block;
+    margin-bottom:5px;
+}
