@@ -32,6 +32,7 @@ Route::resource('news','NewsController',
     array('only' => array('index', 'show')));
 Route::resource('tutorials','TutorialsController',
     array('only' => array('index', 'show')));
+Route::resource('notes','NotesController');
 /*
  * About Route
  * ===========
@@ -40,7 +41,6 @@ Route::resource('tutorials','TutorialsController',
 Route::controller('about','AboutController');
 Route::controller('learn','LearnController');
 Route::controller('events','EventsController');
-
 
 
 /*

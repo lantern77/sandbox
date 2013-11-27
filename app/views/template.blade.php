@@ -80,7 +80,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="/tutorials">Tutorials</a></li>
                             <li><a href="/resources">Resources</a></li>
-                        </ul>
+                            <li><a href="/notes">Notes</a></li>
+
+							</ul>
                 </li>
 
             </ul>
