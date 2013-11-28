@@ -84,6 +84,13 @@
 
 							</ul>
                 </li>
+				
+				<li><a href= "/login">Log In</a></li>  <!-- Login menu item -->
+				
+				<li><a href= "/mechatronics">Mechatronics</a></li>  <!-- For the tronnies -->
+
+				
+					
 
             </ul>
         </div>

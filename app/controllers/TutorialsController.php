@@ -45,7 +45,7 @@ class TutorialsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        //
+        
         $validator = Validator::make(
             array(
                 "id" => $id
@@ -61,6 +61,7 @@ class TutorialsController extends \BaseController {
         return View::make("tutorials.show")
             ->with("date",$date)
             ->with("tut",$tut[0]);
+			
 	}
 
 	/**

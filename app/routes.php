@@ -32,7 +32,12 @@ Route::resource('news','NewsController',
     array('only' => array('index', 'show')));
 Route::resource('tutorials','TutorialsController',
     array('only' => array('index', 'show')));
+	
 Route::resource('notes','NotesController');
+
+Route::resource('mechatronics','StayinAlive',
+    array('only' => array('index')));
+
 /*
  * About Route
  * ===========
