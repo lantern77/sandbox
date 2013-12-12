@@ -3,32 +3,51 @@
 class NotesController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display all notes, grouped by course. 
+	 * Each note is listed by name, and can be clicked to show details (author,date, etc) and a download link
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-        //get all notes
-		// TBI: sort notes by class, author, etc
-        $notes = DB::table("notes")->get();
+        //all notes, sorted by course
+        $notes = DB::table("notes")->orderBy('course', 'ASC')->get(); 
+		
+		//sort notes into array organized as follows:  [key:course name => value:[notes for course]]
+		
+		//notes already sorted by course; new array entry is created every time a new course is encountered
+		
+		$key = $notes[0]->course; //key for first iteration
+		$array = array($key => array()) ;  // first course, empty array for all notes for that course
+		
+		foreach ($notes as $n) 	{
+								
+			$courseName = $n->course;
+			
+			if ($courseName == $key) {
+			
+				$array[$key][] = $n; //add note to its course
+					
+			}else{ //when end of notes for that course
+			$key = $courseName;
+			
+			$array[$key] = array($n); //add first note of course to new array
+			}
+		}
+		
+		
         return View::make("notes.index")
-            ->with("notes",$notes);
-
+			->with("array", $array);
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for uploading a new note.
 	 *
 	 * @return Response
 	 */
 	public function create()
-	{
-		        //get all notes
-        $notes = DB::table("notes")->get();
-
-        return View::make("notes.upload")
-            ->with("notes",$notes);
+	{	  
+        return View::make("notes.upload");
 	}
 
 	/**
@@ -40,15 +59,12 @@ class NotesController extends \BaseController {
 	{
 		
 		// TBI: 
-		// authentication, appropriate storage directory, duplicate detection
-		// change sql column 'class' to 'course' to avoid ambiguity
-		
+		// authentication, appropriate storage directory, duplicate detection		
 		
 		$file = Input::file('filename'); //must specify extension for file to open correctly
 		$fileName = $file->getClientOriginalName();
 		$address = storage_path();
-		$file->move($address, $fileName); //test directory, must be updated
-	//	echo $address;
+		$file->move($address, $fileName); //laravel's default storage location, /apps/storage or something
 		
 		// Database entry - 'notes' table
 		$timestamp = time();  //time of submission (seconds since epoch)
@@ -56,14 +72,16 @@ class NotesController extends \BaseController {
 		$course = Input::get('course');
 		
 		DB::table('notes')->insert(
-		array('fileName' => $fileName,'class' => $course,'authorName' => $author,'date' => $timestamp,'address' => $address)
+		array('fileName' => $fileName,'course' => $course,'authorName' => $author,'date' => $timestamp,'address' => $address)
 		);
+		
+		return Redirect::to('/notes')->with('message', 'Upload successful!');
 		
 		
 	}
 
 	/**
-	 * Display the details of the note.
+	 * Download the note with the provided id.
 	 *
 	 * @param  int  $id
 	 * @return Response

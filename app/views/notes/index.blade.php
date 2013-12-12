@@ -3,24 +3,29 @@
 @section("content")
 <div class="jumbotron text-left">
 
-Sort by: 
-<select>
-	<option value = "date">Date</option>
-	<option value = "course">Course</option>
-</select>
 
+	@foreach($array as $course)
 
-    @foreach($notes as $n)
+	<h2 onclick="toggleDetails('div.{{$course[0]->course}}')">{{$course[0]->course}} </h2><!-- course heading -->
+	<div class="{{$course[0]->course}}"style="display:none;"> <!-- class = course name for toggling -->
+	   @foreach($course as $n)
 	<!-- assigns unique class so each document can toggle individually -->
-	<div class="row" onclick ="toggleDetails('div.{{$n->id}}')">
-		<h2>{{$n->fileName}} </h2>
+	<div class="note" onclick ="toggleDetails('div.{{$n->id}}')" >
+		{{$n->fileName}}
 			<div class = "{{$n->id}}" style="display:none;">
-			Course: {{$n->class}}<br>
-			Submitted by {{$n->authorName}} on {{date("l F jS g:i A",$n->date)}}<br>
-			<a  href="/notes/{{$n->id}}">Download</a>
+				--->Submitted by {{$n->authorName}} on {{date("l F jS g:i A",$n->date)}}<br>
+				---><a  href="/notes/{{$n->id}}">Download</a>
 			</div>
-	</div> 
+	</div>
 	@endforeach
+	
+	
+	</div>
+	
+	
+	@endforeach
+	
+ 
 	
 </div>
 <div align = "center">
