@@ -6,7 +6,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
-
     <title>McMaster Software Engineering Club</title>
 
     <link href='http://fonts.googleapis.com/css?family=Alef:400,700|Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -26,10 +25,33 @@
             <div class="col-sm-9">
                 <h1>McMaster SEClub</h1>
             </div>
+			
+			<!-- This php determines whether to show the login or logout in the top corner -->
+				<?php 
+				if (Auth::check()) {
+				
+					$status = Auth::user()->first_name.' '.Auth::user()->last_name;
+					$label = 'Log out';
+					$ref = '/logout';
+				
+					}else{
+					$status = 'not signed in';
+					$label = 'Log in';
+					$ref = '/login';
+					}
+					
+				?>
+				
             <div class="col-sm-3">
                 <div class="announce well well-sm">
                     <h4>No Upcoming Events</h4>
                 </div>
+				<div class="announce well well-sm">
+                    <h4> {{$status}}</h4>
+					<a href= {{$ref}}>{{$label}}</a>
+
+                </div>
+
             </div>
         <!-- End grid -->
         </header> <!-- header -->
@@ -85,9 +107,11 @@
 							</ul>
                 </li>
 				
-				<li><a href= "/login">Log In</a></li>  <!-- Login menu item -->
-				
 				<li><a href= "/mechatronics">Mechatronics</a></li>  <!-- For the tronnies -->
+				
+			
+				
+				
 
 				
 					

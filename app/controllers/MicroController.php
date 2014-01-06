@@ -1,6 +1,6 @@
 <?php
 
-class StayinAlive extends \BaseController {
+class MicroController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,11 +9,10 @@ class StayinAlive extends \BaseController {
 	 */
 	public function index()
 	{
-      
-        return View::make("mechatronics.index");
-
+	
+	return View::make("mechatronics.index");
 	}
-
+	
 	
 
 }

@@ -32,10 +32,21 @@ Route::resource('news','NewsController',
     array('only' => array('index', 'show')));
 Route::resource('tutorials','TutorialsController',
     array('only' => array('index', 'show')));
-	
-Route::resource('notes','NotesController');
 
-Route::resource('mechatronics','StayinAlive',
+	
+	
+ /*
+	Notes Route
+	Checks authorization
+  */ 
+Route::group(array('before' => 'auth'), function()
+{
+    Route::resource('notes', 'NotesController');
+});	
+
+	
+	
+Route::resource('mechatronics','MicroController',
     array('only' => array('index')));
 
 /*
@@ -70,8 +81,10 @@ Route::when("admin","auth");
  */
 Route::get('login',function()
     {
+			
         return View::make('base.login');
-    }
+		
+    }	
 );
 
 Route::post('login',function()
@@ -81,12 +94,19 @@ Route::post('login',function()
         $password = Input::get("password");
         $rememberMe = Input::get("remember") ? true : false;
 
-        //Validate Login Creds
-        $validator = Validator::make(
+		
+		//Validate email and password before auth attempt
+		//Rules about email/password format can be changed here
+		$rules = array(
+					'email' => array('required','email'),//'regex:$@mcmaster.ca'),
+					'password' => array('required')
+		
+				 );
+		        $validator = Validator::make(
            array('email' => $email, 'password' => $password),
-           array('email' => array('email','required'),
-                "password" => array("required"))
-            );
+           $rules
+            );	
+		 //If input is invalid
         if($validator->fails())
         {
             $mes = "";
@@ -98,10 +118,10 @@ Route::post('login',function()
                 ->with("error",$mes);
         } 
 
-        //Validation has passed not its time to see if the email and password match someone
+		//Logs in user if authentication successful, else return to login screen
         if(Auth::attempt(array('email' => $email, 'password' => $password),$rememberMe))
         {
-            return Redirect::intended('admin');
+            return Redirect::intended('/');
         }else{
             return View::make("base.login")
                 ->with("error","The supplied credentials are incorrect. Please try again")
@@ -112,6 +132,14 @@ Route::post('login',function()
 Route::get('logout',function()
     {
         Auth::logout();
-        return Redirect::to('login');
+        return Redirect::to('/');
     }
+);
+
+
+// error page for unverified accounts
+Route::get('error',function()
+{
+	return View::make('base.error');
+}
 );

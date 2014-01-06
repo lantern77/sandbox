@@ -33,9 +33,11 @@ App::after(function($request, $response)
 |
 */
 
+// Modified to also check for email verification. May want to split into separate filters in the future.
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::guest())return Redirect::guest('login');
+	if (!Auth::user()->confirmation) return Redirect::guest('error');
 });
 
 

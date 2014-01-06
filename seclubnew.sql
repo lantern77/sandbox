@@ -123,3 +123,49 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `password`, `email`) VALUE
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+CREATE TABLE IF NOT EXISTS `course_names` (
+	`code` varchar(4) NOT NULL,
+	`name` varchar(40) NOT NULL
+	PRIMARY KEY (`code`)
+	) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+
+
+INSERT INTO table (`code`, `name`) VALUES
+('2AA4', 'Software Design I'),
+('2C03', 'Data Structures and Algorithms'),
+('2DA4', 'Digital Circuits and Logic'),
+('2DM3', 'Discrete Math I'),
+('2FA3', 'Discrete Math II'),
+('2MX3', 'Systems and Signals'),
+('2S03', 'Principles of Programming'),
+('3A04', 'Software Design II'),
+('3BB4', 'Software Design III'),
+('3DX4', 'Dynamic Models and Control'),
+('3F03', 'Machine-level Programming'),
+('3GA3', 'Computer Architecture'),
+('3GB3', 'Virtual Reality Modelling (G.D)'),
+('3GC3', 'Computer Graphics (G.D)'),
+('3I03', 'Communication Skills'),
+('3K04', 'Software Development'),
+('3RA3', 'Requirements and Security Considerations'),
+('3S03', 'Testing and Management'),
+('3SH3', 'Operating System'),
+('3X03', 'Computation and Simulation'),
+('4AA4', 'Real-time Systems'),
+('4C03', 'Computer Networks and Security'),
+('4DB3', 'Databases'),
+('4E03', 'Performance Analysis'),
+('4F03', 'Distributed Computer Systems'),
+('4G06', 'Capstone'),
+('4GC3', 'HUMANS (G.D)'),
+('4GP6', 'Capstone (G.D)'),
+('4HC3', 'HUMANS AND COMPUTERS (G.D)'),
+('4J03', 'Communications Systems'),
+('4O03', 'Operations Research'),
+('4TE3', 'Continuous Optimization Algorithms'); 
+
+

@@ -29,7 +29,9 @@ return array(
 	|
 	*/
 
-	'lifetime' => 120,
+	'lifetime' => 0, //0 for login/logout testing purposes
+ 'expire_on_close' => true,
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -120,6 +122,6 @@ return array(
 	|
 	*/
 
-	'domain' => null,
+	'domain' => null
 
 );
