@@ -27,7 +27,6 @@
 
 </div>
 
-
 <div class="jumbotron text-left" id="all" style="display:none">	
     <h2 id="courseTitle">Course</h2><br>
 
@@ -53,11 +52,10 @@
 
 </div>
 
-
-
 @stop
 
 <script>
+                  
     // script that displays notes only for the selected course.
     // The HTML element representing each course is accessed by using the course name as the element's id.
     var last = "2AA4"; 
@@ -82,10 +80,6 @@
  
         last = current;  //update for the next request.
     }
-
-    divname.note[i]
-
-
 
     function toggleNote(item) {
         $(item).toggle();

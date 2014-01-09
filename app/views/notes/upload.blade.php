@@ -22,9 +22,8 @@
 
 
         <input type="submit" value="Submit"><br>
-        
-        {{Session::get('message')}} <!-- upload status message -->
 
+        {{Session::get('message')}} <!-- upload status message -->
 
     </form>
 </div>
