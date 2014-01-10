@@ -20,12 +20,12 @@
   </head>
 
   <body>
-    <section class="container">
+    <section class="container"> 
         <header class="row" id="header">
         <!-- Begin grid -->
             <div class="col-sm-9">
-                <h1>McMaster SEClub</h1>
-            </div>
+            <a href="/"><h1 style="color:black">McMaster SEClub</h1></a> <!---Kinda bored and decided to add a link for Header to home-->
+			</div>
             <div class="col-sm-3">
                 <div class="announce well well-sm">
                     <h4>No Upcoming Events</h4>
@@ -82,6 +82,14 @@
                             <li><a href="/resources">Resources</a></li>
                         </ul>
                 </li>
+				<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Login<b class="caret"></b></a> <!--Added a user drop in-->
+                        <ul class="dropdown-menu">
+                            <li><a href="/signup">Sign-up</a></li>
+                            <li><a href="/login">Sign-in</a></li>
+                        </ul>
+                </li>
+			
 
             </ul>
         </div>
