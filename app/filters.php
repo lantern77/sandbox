@@ -33,9 +33,11 @@ App::after(function($request, $response)
 |
 */
 
+// Modified for inline login. redirects to home with notication.
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::guest())return Redirect::to('/')
+                            ->with("notify","You must be logged on to view this.");
 });
 
 

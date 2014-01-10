@@ -8,7 +8,7 @@
         {{$t->brief_intro}}
     </div>
     @endforeach
-
+	
 </div>
 @stop
 
