@@ -29,6 +29,7 @@
             <div class="col-sm-3">
                 <div class="announce well well-sm">
                     <h4>No Upcoming Events</h4>
+					<a href="google.ca" target ="_blank">Upcoming Events </a>
                 </div>
             </div>
         <!-- End grid -->
@@ -44,6 +45,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">Home</a>
+			<a class="navbar-brand" href="/calendar">Calendar</a>
         </div>
         <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
@@ -82,7 +84,6 @@
                             <li><a href="/resources">Resources</a></li>
                         </ul>
                 </li>
-
             </ul>
         </div>
     </nav>

@@ -27,7 +27,8 @@ class EventsController extends \BaseController {
     public function getGallery(){
         return View::make('events.gallery');
     }
-
+	public function getApplication(){
+        return View::make('events.application');
+    }
 }
-
 

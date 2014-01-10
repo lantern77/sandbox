@@ -40,7 +40,7 @@ Route::resource('tutorials','TutorialsController',
 Route::controller('about','AboutController');
 Route::controller('learn','LearnController');
 Route::controller('events','EventsController');
-
+Route::controller('calendar','CalendarController');
 
 
 /*
