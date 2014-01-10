@@ -52,7 +52,9 @@ Route::controller('events','EventsController');
 Route::resource('admin/news','AdminNewsController');
 Route::resource('admin/tutorials','AdminTutorialsController');
 Route::resource('admin/users','AdminUsersController');
+Route::resource('admin/events','AdminEventsController');
 Route::resource('admin','AdminController');
+
 //Filters
 Route::when("admin/*","auth");
 Route::when("admin","auth");

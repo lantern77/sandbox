@@ -77,7 +77,6 @@
               <h3>Quick Links</h3>
               <li><a href="/admin/news/create">New News Story</a></li>
               <li><a href="#">New Tutorial</a></li>
-              <li><a href="#">New Event</a></li>
             </ul>
           </div> 
         </div>
