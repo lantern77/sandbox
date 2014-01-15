@@ -90,6 +90,29 @@ Route::get('login',function()
     }
 );
 
+//**************************************************************************************
+//	Peter's Work
+//**************************************************************************************
+//Simply creates the view of the form
+
+
+//Route::model('userConfirm','User');
+Route::get('signup',array('as' => 'signupform',function()
+    {
+        return View::make('base.signup');
+    }
+));
+
+// Goes back to controller for creation
+Route::post('signupcreate',array('as' => 'addsUser','uses'=>'SignUpController@addUser'));  //Note that this throws a 405 error when this is accesed directly from URI, normal behaviour just need screen for that
+Route::get('confirm',array('as' => 'goConfirmEmail','uses'=>'ConfirmationController@page'));
+Route::group(array('domain' => 'seclub.com'), function()
+{
+    Route::get('confirmation/{code}',array('as' => 'verifyEmail','uses'=>'ConfirmationController@confirmed'));
+});
+
+
+//********************************************************************
 Route::post('login',function()
     {
         //Get Login credentials

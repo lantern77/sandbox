@@ -86,6 +86,15 @@
 
                         </ul>
                 </li>
+				<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Login<b class="caret"></b></a> <!--Added a user drop in-->
+                        <ul class="dropdown-menu">
+                            <li><a href="/signup">Sign-up</a></li>
+                            <li><a href="/login">Sign-in</a></li>
+                        </ul>
+                </li>
+			
+
             </ul>
         </div>
     </nav>
