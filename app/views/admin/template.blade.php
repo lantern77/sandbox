@@ -40,6 +40,7 @@
             <li><a href="/admin/users">Users</a></li>
             <li><a href="/admin/tutorials">Tutorials</a></li>
             <li><a href="/admin/events">Events</a></li>
+			<li><a href="/admin/calendar">Calendar</a></li>
             <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">

@@ -59,11 +59,8 @@ Route::resource('mechatronics', 'MicroController', array('only' => array('index'
 Route::controller('about','AboutController');
 Route::controller('learn','LearnController');
 Route::controller('events','EventsController');
-/*
-*tutors route
-*
-Route::resource('tutors','TutorController'
-    array('only'=> array('index','store')));
+Route::controller('calendar','CalendarController');
+
 
 /*
  * ********************************************************************************
@@ -78,8 +75,8 @@ Route::resource('admin/events','AdminEventsController');
 Route::resource('admin','AdminController');
 
 //Filters
-Route::when("admin/*", "auth");
-Route::when("admin", "auth");
+Route::when("admin/*","auth");
+Route::when("admin","auth");
 
 
 /*
