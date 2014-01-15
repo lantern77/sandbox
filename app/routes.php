@@ -61,6 +61,11 @@ Route::controller('learn','LearnController');
 Route::controller('events','EventsController');
 Route::controller('calendar','CalendarController');
 
+/* * Textbook route
+ * ===========
+ * Currently just an index function. We can add other components to it later
+*/
+Route::resource('textbooks','TextbooksController');
 
 /*
  * ********************************************************************************

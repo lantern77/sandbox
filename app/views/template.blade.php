@@ -78,6 +78,15 @@
                         </ul>
                 </li>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Textbooks<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/textbooks/create">Post Ads</a></li>
+                <li><a href="/textbooks/ads">View Ads</a></li>
+
+                        </ul>
+                </li>
+
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/tutorials">Tutorials</a></li>
