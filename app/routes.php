@@ -16,11 +16,12 @@
  * ==========
  * Will get the index
  */
-Route::get('/', function() {
-            $events = DB::table('events')->where('time', ">", time())->take(2)->get();
-            return View::make('base.base')
-                            ->with("events", $events);
-        });
+Route::get('/', function()
+{
+    $events = DB::table('events')->where('time',">",time())->take(2)->get();
+    return View::make('base.base')
+        ->with("events",$events);
+});
 
 /*
  * News Routes
@@ -60,10 +61,12 @@ Route::controller('events', 'EventsController');
  * ********************************************************************************
  */
 //Routes
-Route::resource('admin/news', 'AdminNewsController');
-Route::resource('admin/tutorials', 'AdminTutorialsController');
-Route::resource('admin/users', 'AdminUsersController');
-Route::resource('admin', 'AdminController');
+Route::resource('admin/news','AdminNewsController');
+Route::resource('admin/tutorials','AdminTutorialsController');
+Route::resource('admin/users','AdminUsersController');
+Route::resource('admin/events','AdminEventsController');
+Route::resource('admin','AdminController');
+
 //Filters
 Route::when("admin/*", "auth");
 Route::when("admin", "auth");
@@ -109,6 +112,9 @@ Route::post('/', function() {
                                 ->with("error", $err_msg)
                                 ->with("email", $email);
             }
+            return Redirect::to("login")
+                ->with("error",$mes);
+        } 
 
             //Logs in user if authentication successful, else return to login screen
             if (Auth::attempt(array('email' => $email, 'password' => $password), $rememberMe)
@@ -120,6 +126,7 @@ Route::post('/', function() {
                                 ->with("email", $email);
             }
         }
+    }
 );
 Route::get('logout', function() {
             Auth::logout();

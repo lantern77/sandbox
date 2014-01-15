@@ -28,6 +28,7 @@ class EventsController extends \BaseController {
         return View::make('events.gallery');
     }
 
+
 }
 
 
