@@ -50,7 +50,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'software',
 			'username'  => 'software',
-			'password'  => 'wpnm8zC9RYLTJpDe',
+			'password'  => 'Awesome Password',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
