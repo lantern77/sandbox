@@ -12,7 +12,6 @@ class AdminController extends \BaseController {
         //
         return View::make("admin.index");
 	}
-p
 	/**
 	 * Show the form for creating a new resource.
 	 *
