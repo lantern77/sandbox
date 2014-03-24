@@ -33,16 +33,16 @@
                         <h4>{{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</h4>
                         <a href="/logout">Log out</a>
                         @else
-                        <form class="form-signin" action="" method="POST">
+                        <form class="form-signin" action="/login" method="POST">
                             <input name="email" type="text" class="form-control" value="{{isset($email) ? $email : ""}}" placeholder="Email address" autofocus>
                             <input name="password" type="password" class="form-control" placeholder="Password">
-                            <input type="submit" value="Sign In" style="padding-top: 5px">  
-                            @if(Session::get('error') || isset($error))  
+                            <input type="submit" value="Sign In" style="padding-top: 5px">
+                            @if(Session::get('error') || isset($error))
                             <div style="color:red; display:inline-block; padding-left:5px; padding-top: 5px" title="{{Session::get('error')}} {{isset($error) ? $error : ""}}">
                                 Invalid Login.
                             </div>
                             @endif
-                        </form>     
+                        </form>
                         @endif
 
 
@@ -60,12 +60,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
+
         </div>
         <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
                 <li><a class="" href="/">Home</a></li>
-                <li class="dropdown">   
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/about/">Who are we?</a></li>
@@ -87,7 +87,7 @@
                             <li><a href="/events/gallery">Event Gallery</a></li>
                         </ul>
                 </li>
-                
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Textbooks<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -107,8 +107,8 @@
                         </ul>
                 </li>
                 <li><a class="" href="/signup">Sign Up</a></li>
-                
-			
+
+
 
             </ul>
         </div>
