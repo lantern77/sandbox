@@ -9,9 +9,9 @@ class CalendarController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-     
-        
-       
+     	/*
+     	 * Returns a view consisting of a google calendar
+     	 */
         return View::make('calendar.index');
             
     }

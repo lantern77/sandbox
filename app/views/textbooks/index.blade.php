@@ -23,7 +23,7 @@
 	<tbody>
 	@foreach($textbooks as $t)
 	<tr>
-		<td><img src="" alt="Picture"/></td><td><a href="/textbooks/ads+{{$t->Title}}">{{$t->Title}}</a></td><td>{{$t->Price}}</td><td>{{$t->Cond}}</td><td>{{$t->Date}}</td>
+		<td><img src="" alt="Picture"/></td><td><a href="/textbooks/{{$t->id}}">{{$t->Title}}</a></td><td>{{$t->Price}}</td><td>{{$t->Cond}}</td><td>{{$t->Date}}</td>
 	</tr>
 	@endforeach
 	</tr>

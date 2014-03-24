@@ -28,9 +28,25 @@
             </div>
             <div class="col-sm-3">
                 <div class="announce well well-sm">
-                    <h4>No Upcoming Events</h4>
-					<a href="google.ca" target ="_blank">Upcoming Events </a>
-                </div>
+
+                        @if(Auth::check())
+                        <h4>{{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</h4>
+                        <a href="/logout">Log out</a>
+                        @else
+                        <form class="form-signin" action="" method="POST">
+                            <input name="email" type="text" class="form-control" value="{{isset($email) ? $email : ""}}" placeholder="Email address" autofocus>
+                            <input name="password" type="password" class="form-control" placeholder="Password">
+                            <input type="submit" value="Sign In" style="padding-top: 5px">  
+                            @if(Session::get('error') || isset($error))  
+                            <div style="color:red; display:inline-block; padding-left:5px; padding-top: 5px" title="{{Session::get('error')}} {{isset($error) ? $error : ""}}">
+                                Invalid Login.
+                            </div>
+                            @endif
+                        </form>     
+                        @endif
+
+
+                    </div>
             </div>
         <!-- End grid -->
         </header> <!-- header -->
@@ -44,30 +60,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Home</a>
-			<a class="navbar-brand" href="/calendar">Calendar</a>
+            
         </div>
         <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/news">Current News</a></li>
-                            <li><a href="/news">Past News</a></li>
-                        </ul>
-                </li>
-                <li class="dropdown">
+                <li><a class="" href="/">Home</a></li>
+                <li class="dropdown">   
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/about/">What are we</a></li>
+                            <li><a href="/about/">Who are we?</a></li>
                             <li><a href="/about/history">History</a></li>
                             <li><a href="/about/executives">Current Executives</a></li>
                             <li><a href="/about/members">Current Members</a></li>
-                            <li><a href="/about/sponsors">Current Sponsors</a></li>
+                            <!--<li><a href="/about/sponsors">Current Sponsors</a></li>
                             <li class="divider"></li>
-                            <li><a href="/about">Want to be a Sponsors?</a></li>
+                            <li><a href="/about">Want to be a Sponsors?</a></li>-->
                         </ul>
                 </li>
+                <li><a class="" href="/calendar">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -77,11 +87,12 @@
                             <li><a href="/events/gallery">Event Gallery</a></li>
                         </ul>
                 </li>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Textbooks<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/textbooks/create">Post Ads</a></li>
-                <li><a href="/textbooks/ads">View Ads</a></li>
+                <li><a href="/textbooks/">View Ads</a></li>
 
                         </ul>
                 </li>
@@ -95,13 +106,8 @@
 
                         </ul>
                 </li>
-				<li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Login<b class="caret"></b></a> <!--Added a user drop in-->
-                        <ul class="dropdown-menu">
-                            <li><a href="/signup">Sign-up</a></li>
-                            <li><a href="/login">Sign-in</a></li>
-                        </ul>
-                </li>
+                <li><a class="" href="/signup">Sign Up</a></li>
+                
 			
 
             </ul>
@@ -118,20 +124,14 @@
 
     <footer class="container" id="footer">
         <div class="row text-center">
-            <div class="col-sm-3">
-                <h4>Previous</h4>
+
+
+            <div class="col-sm-6">
+                <h4>Social Media</h4>
             </div>
 
-            <div class="col-sm-3">
-                <h4>Social</h4>
-            </div>
-
-            <div class="col-sm-3">
-                <h4>Media</h4>
-            </div>
-
-            <div class="col-sm-3">
-                <h4>Contact</h4>
+            <div class="col-sm-6">
+                <h4>Contact Us</h4>
             </div>
 
             <div class="col-1"></div>

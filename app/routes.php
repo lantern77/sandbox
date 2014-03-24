@@ -45,7 +45,7 @@ Route::resource('tutors','TutorController');
  */
 Route::group(array('before' => 'auth'), function() {
             Route::resource('notes', 'NotesController');
-        });
+});
 
 
 

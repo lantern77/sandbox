@@ -19,17 +19,14 @@
     </div>
     <div class="col-sm-4 col">
         <div class="well">
-            <h4>Recent News</h4>
-            <h1>News 1</h1>
-            <p> Events are great</p> 
-            <h1>News 2</h1>
-            <p> Events are great</p> 
+            <h2>Upcoming Events</h2>
+            <p>There are currently no upcoming events</p>
         </div>
     </div>
     <div class="col-sm-4 col">
         <div class="well">
-            <h4>Up Coming Tutorials</h4>
-            Laravel Web Development
+            <h2>New Course Material</h2>
+            <p>There is currently no new course material</p>
         </div>
     </div>
 </div>

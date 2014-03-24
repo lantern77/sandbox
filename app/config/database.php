@@ -48,9 +48,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'seclubnew',
-			'username'  => 'seclubnew',
-			'password'  => 'seclubnew',
+			'database'  => 'software',
+			'username'  => 'software',
+			'password'  => 'wpnm8zC9RYLTJpDe',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -36,11 +36,11 @@ class NotesController extends \BaseController {
         }
 
         // DB table listing all course codes and full names
-        $course_listings = DB::table("course_names")->get();
+        $courseListings = DB::table("course_names")->get();
 
         return View::make("notes.index")
                         ->with("course_notes", $notes)  //array of notes mapped to their course codes
-                        ->with("course_listings", $course_listings);  //codes, full names of courses
+                        ->with("course_listings", $courseListings);  //codes, full names of courses
     }
 
     /**
