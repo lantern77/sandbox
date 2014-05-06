@@ -7,8 +7,18 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>McMaster Software Engineering Club</title>
-
+    <title>McMaster Software Engineering Club </title>
+	<style>
+	#titleImage{
+	position:absolute;
+	top:0px;
+	right:0em;
+	}
+	#titleLink{ text-decoration: none}
+	#webpageTitle{
+	position:relative;
+	}
+	</style>
     <link href='http://fonts.googleapis.com/css?family=Alef:400,700|Roboto+Slab' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -24,10 +34,10 @@
         <header class="row" id="header">
         <!-- Begin grid -->
             <div class="col-sm-9">
-                <h1>McMaster SEClub</h1>
+                <a href="/" id="titleLink" style="color:#000000"><h1 id="webpageTitle">McMaster SEClub</h1></a><div id="titleImage"><img src="/img/logo.gif" width=150 height=110></div>
             </div>
             <div class="col-sm-3">
-                <div class="announce well well-sm">
+                <div id ="signin" class="announce well well-sm">
 
                         @if(Auth::check())
                         <h4>{{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</h4>
