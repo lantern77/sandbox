@@ -1,19 +1,10 @@
 @extends('template')
 
 @section('content')
-<head>
-	<style>
-	#homeImage{
-	position:absolute;
-	top:300px;
-	right:120px;
-	}
 
-	</style>
-</head>
 <div class="jumbotron">
         <div class="page-header">
-          <h1 id="intro">Welcome to the McMaster Software Engineering Club</h1><img id="homeImage"src="/img/logo.gif" width=200 height=150>
+          <h1 id="intro">Welcome to the McMaster Software Engineering Club</h1>
         </div>
         <p class="lead">
             Come one, come all! Here at the McMaster Software Engineering Club we strive to push the software engineering discipline at McMaster University.
