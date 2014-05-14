@@ -84,8 +84,16 @@ div#titleImage {
 .blackColour{
 color:#000000;
 }
-.center{
-	text-align: center;
+.centerText{
+	text-align:center;
+}
+img.centerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.boldText{
+font-weight:bold;
 }
 
 

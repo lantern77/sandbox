@@ -20,11 +20,8 @@
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/lightbox.css" rel="stylesheet">
 	
-	<!--JS Files--><!--Moved to head as it did not register when in the body-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/animation.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/lightbox-2.6.min.js"></script>
+
+
   </head>
 
   <body>
@@ -146,6 +143,12 @@
             <div class="col-1"></div>
         </div> <!--row-->
     </footer>
+	
+	<!--JS Files-->	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/animation.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/lightbox-2.6.min.js"></script>
 
 
   </body>
