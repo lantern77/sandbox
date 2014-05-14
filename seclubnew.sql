@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 3.5.8.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 09, 2014 at 04:47 AM
--- Server version: 5.5.32
+-- Host: localhost
+-- Generation Time: May 09, 2014 at 11:54 AM
+-- Server version: 5.5.30
 -- PHP Version: 5.4.19
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `seclubnew`
 --
-CREATE DATABASE IF NOT EXISTS `seclubnew` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `seclubnew`;
 
 -- --------------------------------------------------------
 
@@ -148,6 +146,37 @@ CREATE TABLE IF NOT EXISTS `notes` (
 
 INSERT INTO `notes` (`id`, `fileName`, `courseCode`, `authorName`, `date`, `address`, `file_description`) VALUES
 (1, 'wiw intensifies.gif', '2AA4', 'James Priebe', 1389237476, 'C:\\xampp\\htdocs\\sandbox\\app\\storage', 'such html');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `textbooks`
+--
+
+CREATE TABLE IF NOT EXISTS `textbooks` (
+  `Title` varchar(255) NOT NULL,
+  `Description` text NOT NULL,
+  `Course` varchar(255) NOT NULL,
+  `Cond` varchar(255) NOT NULL,
+  `Price` int(11) NOT NULL,
+  `ISBN` varchar(255) NOT NULL,
+  `Edition` varchar(255) NOT NULL,
+  `Picture` text NOT NULL,
+  `Date` date NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `textbooks`
+--
+
+INSERT INTO `textbooks` (`Title`, `Description`, `Course`, `Cond`, `Price`, `ISBN`, `Edition`, `Picture`, `Date`, `id`) VALUES
+('algorithms', 'afgafaedzdfd', '2c03', 'awesome', 600, '123456787654321', '2', '', '2014-01-08', 16),
+('dfsfgdsshbgdhdthd', 'segsgtrthhedh', 'e34t34g', 'gdbsgbdnbdgd', 233, '34567654321', '5', '', '2014-01-08', 17),
+('wertyui', 'asdfg', '24tg', 'bad', 44, '123456778456', '2', '', '2014-01-08', 18),
+('sdafghgfdsa', '32334rwfsdfsf', '123ewde', 'goood', 12, '8765432123456781232', '2', '', '2014-01-10', 19),
+('testtesttest', 'testtesttest', 'testtesttest', 'testtesttest', 45, '123123123123123123', '-4', '', '2014-02-28', 20);
 
 -- --------------------------------------------------------
 

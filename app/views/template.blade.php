@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
     <title>McMaster Software Engineering Club </title>
-	<style>
-	#titleImage{
-	position:absolute;
-	top:0px;
-	right:0em;
-	}
-	#titleLink{ text-decoration: none}
-	#webpageTitle{
-	position:relative;
-	}
-	</style>
     <link href='http://fonts.googleapis.com/css?family=Alef:400,700|Roboto+Slab' rel='stylesheet' type='text/css'>
+	
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
+
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/lightbox.css" rel="stylesheet">
+	
+	<!--JS Files--><!--Moved to head as it did not register when in the body-->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/animation.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/lightbox-2.6.min.js"></script>
   </head>
 
   <body>
     <section class="container">
         <header class="row" id="header">
         <!-- Begin grid -->
-            <div class="col-sm-9">
-                <a href="/" id="titleLink" style="color:#000000"><h1 id="webpageTitle">McMaster SEClub</h1></a><div id="titleImage"><img src="/img/logo.gif" width=150 height=110></div>
+            <div class="col-sm-9"><!--Top of the page-->
+                <a href="/" id="titleLink" class="blackColour"><h1 id="webpageTitle">McMaster SEClub</h1></a>
+				<div id="titleImage"><img src="/img/logo.gif" width=150 height=110></div>
             </div>
             <div class="col-sm-3">
                 <div id ="signin" class="announce well well-sm">
@@ -148,9 +147,6 @@
         </div> <!--row-->
     </footer>
 
-<!--JS Files-->
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/lightbox-2.6.min.js"></script>
+
   </body>
 </html>

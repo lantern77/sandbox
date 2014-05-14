@@ -8,6 +8,7 @@ url('fonts/norwester.svg#norwester') format('svg');
 font-weight: normal;
 font-style: normal;
 }
+
 body{
     font-family: "Roboto Slab" serif;
     background-color: #95a5a6;
@@ -59,4 +60,33 @@ footer {
 .bottom-space {
     padding-bottom:15px;
 }
+/*Peter's Custom CSS*/
+
+/*Custom CSS for Template.blade*/
+div#titleImage {
+	position:absolute;
+	top:0px;
+	right:0em;
+	}
+#titleLink { text-decoration: none}
+
+#webpageTitle {
+	position:relative;
+	}
+/*Custom CSS for executives.blade*/
+#expand2013{
+	display:none;
+	}
+#expand2014{
+	display:none;
+	}
+/*Class colour*/	
+.blackColour{
+color:#000000;
+}
+.center{
+	text-align: center;
+}
+
+
 

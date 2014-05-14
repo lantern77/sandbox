@@ -1,28 +1,11 @@
 @extends('template')
 
 @section('content')
-<head>
-	<style>
-	div#expand2013{
-	display:none;
-	}
-	div#expand2014{
-	display:none;
-	}
-	</style>
-	<script> 
-	function show(elem) //current javascript simply expands a section will add animation later
-	{
-	if(document.getElementById(elem).style.display == 'block')
-	document.getElementById(elem).style.display = 'none';
-	else
-	document.getElementById(elem).style.display = 'block';
-	}
-	</script>
-</head>
-<div class="jumbotron">
-<h1><a href="javascipt:;" style="color:#000000" onclick=show('expand2014')><b>Current Executives 2014-2015</b></a></h1><BR>
-	<div id="expand2014">
+
+<!--Styles.js did not register and in the comments of the file was not recommended to be edited--><!--onclick allows me to send info to a function-->
+<div class="jumbotron"> <!--External file: /js/animation.js.Note decided to go with an onclick method as I can reuse a function over and over rather than simply link by name-->
+<a><h3 class="expandTitle" onclick=toggleAnimation("expand2013")>Current Executives 2014-2015</h3></a><BR>
+	<div id="expand2013">
 		<div class="row bottom-space">
 			<div class="col-md-4"><img style="/* -webkit-user-select: none */" src="/img/saif.jpg" width = 250 height = 250></div>
 			<div class="col-md-8">
@@ -67,11 +50,13 @@
 		</div>
 		<center><h2>If you would like to get involved or apply for an executive position please feel free to e-mail: sec@mcmaster.ca </h2></center>
 		<!--Possibly add a contact e-mail thing-->
-		<div><a href="javascript:;" onclick=show('expand2014')>Close Executives Page<a></div>
+		<div>
+			<a><h4 onclick=toggleAnimation("expand2013")>Close Executive Page</h4></a>
+		</div>
 	</div>
 <!---Exec team of 2013-->
-<h1><a href="javascipt:;" style="color:#000000" onclick=show('expand2013')><b>Past Executives 2013-2014</b></a></h1><BR>
-	<div id="expand2013"> <!--Past section need to bee hidden-->
+<a><h3 class="expandTitle" onclick=toggleAnimation("expand2014")>Past Executives 2013-2014<h3></a><BR>
+	<div id="expand2014"> <!--Past section need to bee hidden-->
 		<div class="row bottom-space">
 			<div class="col-md-4"><img style="/* -webkit-user-select: none */" src="/img/mike.jpg" width = 250 height = 250></div>
 			<div class="col-md-8">
@@ -135,7 +120,9 @@
 				<h3>Ian MacDonald</h3>
 			</div>
 		</div>
-		<div><a href="javascript:;" onclick=show('expand2013')>Close Executives Page<a></div>
+		<div>
+			<a><h4 onclick=toggleAnimation("expand2014")>Close Executive Page</h4></a>
+		</div>
 	</div>
 
 </div>

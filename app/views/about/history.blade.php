@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="jumbotron">
-    <center><h1><b>History of the Software Engineering Club</b></h1></center>
-	<center><img src="/img/2012-2013.jpg" width="620" height="480"></center>
+    <h1 class="center"><b>History of the Software Engineering Club</b></h1>
+	<img class="center" src="/img/2012-2013.jpg" width="620" height="480">
     <center><p>Well the individual writing this is truly unaware of when this club started but with the information I am given it seems
 	that, the club was started on the 2012-2013 year. A group of friend with an initiative to help improve the lives of software engineers.
 	</p></center>

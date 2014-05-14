@@ -1,7 +1,6 @@
 @extends('template')
 
 @section('content')
-
 <div class="jumbotron">
         <div class="page-header">
           <h1 id="intro">Welcome to the McMaster Software Engineering Club</h1>
