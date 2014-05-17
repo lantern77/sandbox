@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.2
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 09, 2014 at 11:54 AM
--- Server version: 5.5.30
--- PHP Version: 5.4.19
+-- Host: 127.0.0.1
+-- Generation Time: May 17, 2014 at 10:34 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -216,17 +216,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(30) NOT NULL,
   `password` varchar(60) NOT NULL,
   `email` varchar(25) NOT NULL,
+  `description` text NOT NULL,
+  `confirmation_code` varchar(25) NOT NULL,
   `confirmation` bit(1) NOT NULL DEFAULT b'0',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `password`, `email`, `confirmation`) VALUES
-(1, 'Mathew', 'Artemenko', '$2y$08$Gl3JUbHv5Kfo.fAkD7mnZ.kYn13pARufsT11JJzHbT2UoVIXbDEa2', 'mat@mcmaster.ca', b'0'),
-(3, 'James', 'Priebe', '$2y$08$bp0NUhtO3dvXVzAxb2iIgeuUIITakgy.YQFbAz0flQYByJlccT6sS', 'priebejp@mcmaster.ca', b'1');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `password`, `email`, `description`, `confirmation_code`, `confirmation`, `updated_at`, `created_at`) VALUES
+(1, 'Mathew', 'Artemenko', '$2y$08$Gl3JUbHv5Kfo.fAkD7mnZ.kYn13pARufsT11JJzHbT2UoVIXbDEa2', 'mat@mcmaster.ca', '', '', b'0', '2014-05-17 20:16:50', '0000-00-00 00:00:00'),
+(3, 'James', 'Priebe', '$2y$08$bp0NUhtO3dvXVzAxb2iIgeuUIITakgy.YQFbAz0flQYByJlccT6sS', 'priebejp@mcmaster.ca', '', '', b'1', '2014-05-17 20:16:50', '0000-00-00 00:00:00'),
+(4, 'Peter', 'Hoang', '$2y$08$7Lm2BSwrAJqY9em4UZbRhOftEBxP4GDSwlJMCrKkD4zMSNQD8tQBe', 'hoangp2@mcmaster.ca', 'saddasd', 'a2GcB25b7cinyuVvhm4K6NiRo', b'1', '2014-05-18 00:17:23', '2014-05-18 00:17:23');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
